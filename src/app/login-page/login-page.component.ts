@@ -21,6 +21,12 @@ export class LoginPageComponent {
       this.router.navigate(['']);
     })
   }
+  loginWithTwitter() {
+    this.afService.loginWithTwitter().then((data) => {
+      this.afService.addUserInfo();
+      this.router.navigate(['']);
+    })
+  }
   loginWithEmail(event, email, password){
     event.preventDefault();
     this.afService.loginWithEmail(email, password).then(() => {

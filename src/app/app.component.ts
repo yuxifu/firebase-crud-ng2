@@ -31,6 +31,9 @@ export class AppComponent {
         else if (auth.facebook) {
           provider = 'Facebook';
         }
+        else if (auth.twitter) {
+          provider = 'Twitter';
+        }
         else {
           provider = 'Email/Password';
         }

@@ -56,6 +56,22 @@ export class AF {
     }
 
     /**
+     * Logs in the user
+     * @returns {firebase.Promise<FirebaseAuthState>}
+     */
+    loginWithTwitter() {
+        return this.af.auth.login({
+            provider: AuthProviders.Twitter,
+            method: AuthMethods.Popup,
+        }).then(() => {
+            console.log('Successfully logged in Twitter.');
+        })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    /**
      * Logs out the current user
      */
     logout() {
