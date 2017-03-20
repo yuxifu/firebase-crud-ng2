@@ -13,21 +13,32 @@ export class AppComponent {
     // This asynchronously checks if our user is logged it and will automatically
     // redirect them to the Login page when the status changes.
     // This is just a small thing that Firebase does that makes it easy to use.
-    this.afService.af.auth.subscribe(
-      (auth) => {
-        if (auth == null) {
-          console.log("Not Logged in.");
-          this.router.navigate(['login']);
-          this.isLoggedIn = false;
+    this.afService.af.auth.subscribe((auth) => {
+      if (auth == null) {
+        console.log("Not Logged in.");
+        this.isLoggedIn = false;
+        this.router.navigate(['login']);
+      }
+      else {
+        // Set the Display Name and Email so we can attribute messages to them
+        console.log(auth);
+        this.afService.displayName = auth.auth.displayName;
+        this.afService.email = auth.auth.email;
+        let provider: string = '';
+        if (auth.google) {
+          provider = 'Google';
+        }
+        else if (auth.facebook) {
+          provider = 'Facebook';
         }
         else {
-          console.log("Successfully Logged in.");
-          this.isLoggedIn = true;
-          // UPDATE: I forgot this at first. Without it when a user is logged in and goes directly to /login
-          // the user did not get redirected to the home page.
-          this.router.navigate(['']);
+          provider = 'Email/Password';
         }
+        console.log("Successfully Logged in: " + provider);
+        this.isLoggedIn = true;
+        this.router.navigate(['']);
       }
+    }
     );
   }
   logout() {

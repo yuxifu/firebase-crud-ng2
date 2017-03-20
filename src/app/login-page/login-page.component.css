@@ -17,14 +17,16 @@
 }
 .loginmodal-submit {
   /* border: 1px solid #3079ed; */
+  margin: 5px;
+  height: 30px;
   width: 100%;
   border: 0px;
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1);
   background-color: #4d90fe;
-  padding: 17px 0px;
+  padding: 0px 0px;
   font-family: roboto;
-  font-size: 21px;
+  font-size: 15px;
    background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed));
 }
 .loginmodal-submit:hover {
