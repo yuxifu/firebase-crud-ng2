@@ -21,15 +21,14 @@ export class RegistrationPageComponent {
             photoURL: ''
           }
         ).then(() => {
-            this.router.navigate(['']);
-          })
-          .catch((error) => {
-            this.error = error;
-          });
-        this.afService.saveUserInfoFromForm(user.uid, name, email)
-          .then(() => {
-            //this.router.navigate(['']);
-          })
+          this.afService.saveUserInfoFromForm(user.uid, name, email)
+            .then(() => {
+              this.router.navigate(['']);
+            })
+            .catch((error) => {
+              this.error = error;
+            });
+        })
           .catch((error) => {
             this.error = error;
           });

@@ -1,5 +1,7 @@
 # FirebaseCrud
 
+Purpose: ng 2 real-time chatting app with Firebase authentication.
+
 This project was based on the [Angular 2 Firebase Tutorial](https://progblog.io/Angular-2-Firebase-Tutorial-Part-1-Create-a-Firebase-3-CRUD-app-with-Angular-CLI/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
